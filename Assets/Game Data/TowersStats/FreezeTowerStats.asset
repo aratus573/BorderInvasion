@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e564eaef9ea9f45dca48c5126e32ffcf, type: 3}
+  m_Name: FreezeTowerStats
+  m_EditorClassIdentifier: 
+  name: Freeze Tower
+  description: Deal little damage, slow enemies down
+  resourceCost: 50
+  resourceRefund: 30
+  towerDamage: 5
+  healthPoint: 100
+  fireRate: 0.6666667
+  detectRange: 11
+  detectRate: 1.3333334
+  rotateSpeed: 20
+  abilities:
+    canAttack: 1
+    hasBullet: 0
+    canSlow: 1
+    toLandEnemies: 1
+    toFlyingEnemies: 1
+  bulletPrefab: {fileID: 0}

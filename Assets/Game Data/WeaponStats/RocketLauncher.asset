@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a26c3e60e27bf0741916414beb8eec57, type: 3}
+  m_Name: RocketLauncher
+  m_EditorClassIdentifier: 
+  Name: Rocket Launcher
+  Description: An anti-materiel equipment designed to destroy multiple targets at
+    once.
+  Melee: 0
+  aimType: 2
+  Damage: 60
+  BlastDamageMultiplier: 0.5
+  FireCD: 1
+  ShotSound: {fileID: 8300000, guid: 3934fc6886d5cca4f950ef55a50f9fc8, type: 3}
+  BulletPrefab: {fileID: 9221397347645412132, guid: 6ab24b3a3e250574c8fc90c460b344c2, type: 3}

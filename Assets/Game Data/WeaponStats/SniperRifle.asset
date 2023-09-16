@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a26c3e60e27bf0741916414beb8eec57, type: 3}
+  m_Name: SniperRifle
+  m_EditorClassIdentifier: 
+  Name: Sniper Rifle
+  Description: A powerful single-shot weapon that emits high energy plasma bolt.
+  Melee: 0
+  aimType: 1
+  Damage: 120
+  BlastDamageMultiplier: 0
+  FireCD: 1.5
+  ShotSound: {fileID: 8300000, guid: 03806f471212e4f43898c8317f907ef5, type: 3}
+  BulletPrefab: {fileID: 4255841157138427212, guid: a468c2370af71b4499a52e720a70f76a, type: 3}

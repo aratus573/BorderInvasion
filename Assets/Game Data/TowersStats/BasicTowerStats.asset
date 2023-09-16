@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e564eaef9ea9f45dca48c5126e32ffcf, type: 3}
+  m_Name: BasicTowerStats
+  m_EditorClassIdentifier: 
+  name: Basic Tower
+  description: Well-rounded defence system
+  resourceCost: 30
+  resourceRefund: 18
+  towerDamage: 30
+  healthPoint: 100
+  fireRate: 1.5
+  detectRange: 12
+  detectRate: 2
+  rotateSpeed: 1
+  abilities:
+    canAttack: 1
+    hasBullet: 1
+    canSlow: 0
+    toLandEnemies: 1
+    toFlyingEnemies: 1
+  bulletPrefab: {fileID: 2161686258270150751, guid: ea5853c15a50349a481a95d3a1bd34ee, type: 3}

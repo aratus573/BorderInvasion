@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb777b8014c9de74590c4cf410683794, type: 3}
+  m_Name: PlayerFuelRegenUpgrade
+  m_EditorClassIdentifier: 
+  price: 20
+  priceIncrement: 5
+  Name: Propellant Regen
+  description: Increase efficiency of the ISRU propellant replenishment by 10%.
+  level: 0
+  maxLevel: 5
+  modifiedAttribute:
+  - attributeType: 5
+    value: 0.1
