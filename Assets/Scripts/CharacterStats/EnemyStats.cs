@@ -10,7 +10,8 @@ public class EnemyStats : CharacterStats
     EnemyAnimation enemyAnimation;
     EnemyMovement enemyMovement;
     NavMeshAgent navMeshAgent;
-    private void Update() {
+    private void Update()
+    {
         HandleStun();
     }
     private void Awake()
@@ -20,13 +21,13 @@ public class EnemyStats : CharacterStats
             characterData = Instantiate(templateData);
         }
         enemyData = (EnemyData)characterData;
-        enemyAnimation=GetComponent<EnemyAnimation>();
-        enemyMovement=GetComponent<EnemyMovement>();
-        navMeshAgent=GetComponent<NavMeshAgent>();
+        enemyAnimation = GetComponent<EnemyAnimation>();
+        enemyMovement = GetComponent<EnemyMovement>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
     public override void TakeDamage(float damage)
     {
-        damage=damage/(damage+enemyData.armor);
+        damage = damage - enemyData.armor;
         //for entities that cant critical hit
         characterData.CurrentHealth = Mathf.Max(0, characterData.CurrentHealth - damage);
         enemyAnimation.PlayHurtAnimation();
@@ -37,19 +38,21 @@ public class EnemyStats : CharacterStats
             floatingHealthBar.UpdateHealthBar(characterData.CurrentHealth, characterData.MaxHealth);
         }
 
-        if (characterData.CurrentHealth==0){
-            enemyMovement.enabled=false;
-            navMeshAgent.enabled=false;
+        if (characterData.CurrentHealth == 0)
+        {
+            enemyMovement.enabled = false;
+            navMeshAgent.enabled = false;
             EnemyDeath();
         }
     }
-    public void TakeDamage(float damage,bool isCriticalHit)
+    public void TakeDamage(float damage, bool isCriticalHit)
     {
-        if(isCriticalHit){
-            damage*=enemyData.criticalHitMultiplier;
+        if (isCriticalHit)
+        {
+            damage *= enemyData.criticalHitMultiplier;
         }
         //armor damage reduction calc
-        damage=damage/(damage+enemyData.armor);
+        damage = damage / (damage + enemyData.armor);
 
         characterData.CurrentHealth = Mathf.Max(0, characterData.CurrentHealth - damage);
         enemyAnimation.PlayHurtAnimation();
@@ -60,45 +63,53 @@ public class EnemyStats : CharacterStats
             floatingHealthBar.UpdateHealthBar(characterData.CurrentHealth, characterData.MaxHealth);
         }
 
-        if (characterData.CurrentHealth==0){
-            enemyMovement.enabled=false;
-            navMeshAgent.enabled=false;
+        if (characterData.CurrentHealth == 0)
+        {
+            enemyMovement.enabled = false;
+            navMeshAgent.enabled = false;
             EnemyDeath();
         }
     }
 
-    public void ApplyStun(float stunDuration){
-        if(enemyData.currentStunDuration<stunDuration){
-            enemyData.currentStunDuration=stunDuration;
+    public void ApplyStun(float stunDuration)
+    {
+        if (enemyData.currentStunDuration < stunDuration)
+        {
+            enemyData.currentStunDuration = stunDuration;
         }
     }
 
-    public void ApplyArmorBreak(float armorBreakPercentage){
-        if(enemyData.currentArmorBreakPercentage<armorBreakPercentage){
-            enemyData.currentArmorBreakPercentage=armorBreakPercentage;
-            enemyData.armor=templateData.armor*(1-enemyData.currentArmorBreakPercentage);
+    public void ApplyArmorBreak(float armorBreakPercentage)
+    {
+        if (enemyData.currentArmorBreakPercentage < armorBreakPercentage)
+        {
+            enemyData.currentArmorBreakPercentage = armorBreakPercentage;
+            enemyData.armor = templateData.armor * (1 - enemyData.currentArmorBreakPercentage);
         }
     }
 
-    void HandleStun(){
-        if(enemyData.currentStunDuration>0){
-            enemyData.isStunned=true;
-            enemyData.MoveSpeed=0;
-            enemyData.currentStunDuration-=Time.deltaTime;
+    void HandleStun()
+    {
+        if (enemyData.currentStunDuration > 0)
+        {
+            enemyData.isStunned = true;
+            enemyData.MoveSpeed = 0;
+            enemyData.currentStunDuration -= Time.deltaTime;
             return;
         }
-        enemyData.isStunned=false;
-        enemyData.MoveSpeed=templateData.MoveSpeed;
+        enemyData.isStunned = false;
+        enemyData.MoveSpeed = templateData.MoveSpeed;
     }
 
     #region Method Called by Other Methods
-    public void EnemyDeath(){
-        gameObject.tag="DeadEnemy";
-        gameObject.layer=11;
+    public void EnemyDeath()
+    {
+        gameObject.tag = "DeadEnemy";
+        gameObject.layer = 11;
         minimapIcon.SetActive(false);
         enemyAnimation.PlayDeathAnimation();
-        Destroy(gameObject,3f);
-        UpgradeManager.Instance.playerResource+=enemyData.resourceDrop+(EnemyManager.Instance.GetCurrentWave() / 8);
+        Destroy(gameObject, 3f);
+        UpgradeManager.Instance.playerResource += enemyData.resourceDrop + (EnemyManager.Instance.GetCurrentWave() / 8);
         EnemyManager.Instance.EnemyDies(enemyMovement);
     }
     #endregion

@@ -22,7 +22,7 @@ MonoBehaviour:
   attackRange: 1.5
   resourceDrop: 1
   acceleration: 8
-  armor: 0
+  armor: 2
   isStunned: 0
   currentStunDuration: 0
   currentArmorBreakPercentage: 0
