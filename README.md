@@ -47,6 +47,8 @@ U : 升級選單
 ![Image](Gameplay2.gif)
 
 ##
+[Demo Video](https://youtu.be/9xAPkn2ET14)
+
 [預告片](https://youtu.be/Co8yCh8LCPM)
 
 [Build](https://drive.google.com/file/d/138z-8g2osn11sogl1USvsPCfLTDfbePr/view?usp=drive_link)
